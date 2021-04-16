@@ -1,0 +1,43 @@
+<h3>Restaurants</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            <div class="row" >
+            <app-single-restaurant class="col-sm-4 col-md-6 col-lg-4" *ngFor="let foo of model.getRestaurants()" [data]="foo"></app-single-restaurant>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <h3>Add Restaurant</h3>
+            <div class="form-group">
+                <label>Id</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.id"> 
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.name"> 
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.location"> 
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.category"> 
+            </div>
+            <div class="form-group">
+                <label>Opening Hour</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.openingHour"> 
+            </div>
+            <div class="form-group">
+                <label>Menu</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.menu"> 
+            </div>
+            <div class="form-group">
+                <label>Add Logo</label>
+                <input class="form-control" [(ngModel)]="newRestaurant.logoPath"> 
+            </div>
+            <button class="btn btn-primary" (click)="model.addRestaurant(this.newRestaurant)">Create</button>
+        </div>
+        <img src="assets/images/a.png">
+    </div>
+</div>
