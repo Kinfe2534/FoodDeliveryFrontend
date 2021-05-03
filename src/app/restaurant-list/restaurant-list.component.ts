@@ -8,12 +8,16 @@ import { Restaurant } from '../model/restaurant.model';
 })
 export class RestaurantListComponent implements OnInit {
  
- newRestaurant: Restaurant=new Restaurant(); 
+ newRestaurant: Restaurant=new Restaurant();
+ view: string="table"; 
   constructor(public model: RestaurantRepository) {
   
   }
 
   ngOnInit(): void {
   }
-
+switchView(){
+  if(this.view=="table"){this.view="thumbnail"}
+  else if(this.view="thumbnail"){this.view="table"}
+}
 }

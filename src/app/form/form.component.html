@@ -1,0 +1,30 @@
+<h3>Add Restaurant</h3>
+<div class="form-group">
+    <label>Id</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.id"> 
+</div>
+<div class="form-group">
+    <label>Name</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.name"> 
+</div>
+<div class="form-group">
+    <label>Location</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.location"> 
+</div>
+<div class="form-group">
+    <label>Category</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.category"> 
+</div>
+<div class="form-group">
+    <label>Opening Hour</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.openingHour"> 
+</div>
+<div class="form-group">
+    <label>Menu</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.menu"> 
+</div>
+<div class="form-group">
+    <label>Add Logo</label>
+    <input class="form-control" [(ngModel)]="newRestaurant.logoPath"> 
+</div>
+<button class="btn btn-primary" (click)="model.addRestaurant(this.newRestaurant)">Create</button>

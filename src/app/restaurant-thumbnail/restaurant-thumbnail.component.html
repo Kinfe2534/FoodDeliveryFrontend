@@ -1,0 +1,16 @@
+<h3>Available Restaurants</h3>
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-sm-12 col-md-2 col-lg-4" *ngFor="let restaurant of model.getRestaurants()">
+        
+                <h5><img src="{{restaurant.logoPath}}">{{restaurant.name}}  {{restaurant.category}}<span> {{restaurant.id}}</span></h5>
+                <p>Address : {{restaurant.location}}</p>
+                <button class="btn-secondary">Order Now</button>
+    
+        </div>
+
+    </div>
+</div>
+
+    
+

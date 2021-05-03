@@ -6,25 +6,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
-import { SingleRestaurantComponent } from './single-restaurant/single-restaurant.component';
+import { RestaurantThumbnailComponent } from './restaurant-thumbnail/restaurant-thumbnail.component';
 import { FooterComponent } from './footer/footer.component';
-import { RestaurantDataSource} from './model/restaurantDataSource.model';
-import { RestaurantRepository } from './model/restaurantRepository.model';;
+import { RestaurantDataSource, REST_URL} from './model/restaurantDataSource.model';
+import { RestaurantRepository } from './model/restaurantRepository.model';
+import { HttpClientModule } from "@angular/common/http";
+import { FormComponent } from './form/form.component';
+import { RestaurantsTableComponent } from './restaurants-table/restaurants-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     RestaurantListComponent,
-    SingleRestaurantComponent,
-    FooterComponent
+    RestaurantThumbnailComponent,
+    FooterComponent,
+    FormComponent,
+    RestaurantsTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,HttpClientModule
   ],
-  providers: [RestaurantDataSource,RestaurantRepository ],
+  providers: [RestaurantDataSource,RestaurantRepository,  { provide: REST_URL, useValue: `http://${location.hostname}:4204/restaurants` }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
