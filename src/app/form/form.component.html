@@ -1,30 +1,35 @@
-<h3>Add Restaurant</h3>
-<div class="form-group">
-    <label>Id</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.id"> 
+
+<div class="bg-primary text-white p-2" [class.bg-warning]="editing">
+    <h5>{{editing  ? "Edit" : "Create"}} Restaurant</h5>
 </div>
-<div class="form-group">
-    <label>Name</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.name"> 
-</div>
-<div class="form-group">
-    <label>Location</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.location"> 
-</div>
-<div class="form-group">
-    <label>Category</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.category"> 
-</div>
-<div class="form-group">
-    <label>Opening Hour</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.openingHour"> 
-</div>
-<div class="form-group">
-    <label>Menu</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.menu"> 
-</div>
-<div class="form-group">
-    <label>Add Logo</label>
-    <input class="form-control" [(ngModel)]="newRestaurant.logoPath"> 
-</div>
-<button class="btn btn-primary" (click)="model.addRestaurant(this.newRestaurant)">Create</button>
+<form novalidate #form="ngForm" (ngSubmit)="submitForm(form)" (reset)="resetForm()" >
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" [(ngModel)]="bufferRestaurant.name" />
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input class="form-control" name="location" [(ngModel)]="bufferRestaurant.location"> 
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        <input class="form-control" name="category" [(ngModel)]="bufferRestaurant.category"> 
+    </div>
+    <div class="form-group">
+        <label>Opening Hour</label>
+        <input class="form-control" name="openingHour" [(ngModel)]="bufferRestaurant.openingHour"> 
+    </div>
+    <div class="form-group">
+        <label>Menu</label>
+        <input class="form-control" name="menu" [(ngModel)]="bufferRestaurant.menu"> 
+    </div>
+    <div class="form-group">
+        <label>Add Logo</label>
+        <input class="form-control" name="logoPath" [(ngModel)]="bufferRestaurant.logoPath"> 
+    </div>
+    <button type="submit" class="btn btn-primary m-1"
+            [class.btn-warning]="editing" [disabled]="form.invalid" >
+        {{editing ? "Save" : "Create"}}
+    </button>
+    <button type="reset" class="btn btn-secondary m-1">Cancel</button>
+</form>

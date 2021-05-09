@@ -14,6 +14,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormComponent } from './form/form.component';
 import { RestaurantsTableComponent } from './restaurants-table/restaurants-table.component';
 
+import { SharedState, SHARED_STATE } from "./model/sharedState.model";
+import { Subject } from "rxjs";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +26,15 @@ import { RestaurantsTableComponent } from './restaurants-table/restaurants-table
     RestaurantThumbnailComponent,
     FooterComponent,
     FormComponent,
-    RestaurantsTableComponent
+    RestaurantsTableComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,HttpClientModule
   ],
-  providers: [RestaurantDataSource,RestaurantRepository,  { provide: REST_URL, useValue: `http://${location.hostname}:4204/restaurants` }],
+  providers: [{ provide: SHARED_STATE, useValue: new Subject<SharedState>() },RestaurantDataSource,RestaurantRepository,  { provide: REST_URL, useValue: `http://${location.hostname}:4204/restaurants` }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

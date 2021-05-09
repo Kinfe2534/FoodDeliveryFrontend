@@ -27,16 +27,28 @@ export class RestaurantDataSource {
 
     getRestaurant():Observable< Restaurant[]>{
         //return this.data;
-        return this.http.get<Restaurant[]>(this.url);
+        //return this.http.get<Restaurant[]>(this.url);
+        return this.sendRequest<Restaurant[]>("GET", this.url);
     }
     saveRestaurant(restaurant:Restaurant):Observable<Restaurant>{
-        return this.http.post<Restaurant>(this.url,restaurant);
+        //return this.http.post<Restaurant>(this.url,restaurant);
+        return this.sendRequest<Restaurant>("POST", this.url, restaurant);
     }
     updateRestaurant(restaurant:Restaurant):Observable<Restaurant>{
-        return this.http.put<Restaurant>(`${this.url}/${restaurant.id}`, restaurant)
+        //return this.http.put<Restaurant>(`${this.url}/${restaurant.id}`, restaurant);
+        return this.sendRequest<Restaurant>("PUT",
+            `${this.url}/${restaurant.id}`, restaurant);
+        
     }
     deleteRestaurant(id: number): Observable<Restaurant> {
-        return this.http.delete<Restaurant>(`${this.url}/${id}`);
+       // return this.http.delete<Restaurant>(`${this.url}/${id}`);
+        return this.sendRequest<Restaurant>("DELETE", `${this.url}/${id}`);
     }
+    private sendRequest<T>(verb: string, url: string, body?: Restaurant)
+    : Observable<T> {
+            return this.http.request<T>(verb, url, {
+                body: body
+            });
+            }
 
 }

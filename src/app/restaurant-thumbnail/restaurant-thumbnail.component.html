@@ -5,12 +5,23 @@
         
                 <h5><img src="{{restaurant.logoPath}}">{{restaurant.name}}  {{restaurant.category}}<span> {{restaurant.id}}</span></h5>
                 <p>Address : {{restaurant.location}}</p>
-                <button class="btn-secondary">Order Now</button>
+                <td class="text-center">
+                    <button class="btn btn-danger btn-sm mr-1"
+                            (click)="removeRestaurant(r.id)">
+                        Delete
+                    </button>
+                    <button class="btn btn-warning btn-sm" (click)="editRestaurant(r.id)">
+                        Edit
+                    </button>
+                </td>
     
         </div>
 
     </div>
 </div>
+<button class="btn btn-primary m-1" (click)="addRestaurant()">
+    Create New Restaurant
+</button>
 
     
 

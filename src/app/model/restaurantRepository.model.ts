@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from './restaurant.model';
-import { Observable } from "rxjs";
 import { RestaurantDataSource } from './restaurantDataSource.model'
 
 @Injectable()

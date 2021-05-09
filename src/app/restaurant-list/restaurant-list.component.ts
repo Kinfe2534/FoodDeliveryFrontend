@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantRepository} from '../model/restaurantRepository.model';
-import { Restaurant } from '../model/restaurant.model';
+
+
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
@@ -8,12 +9,9 @@ import { Restaurant } from '../model/restaurant.model';
 })
 export class RestaurantListComponent implements OnInit {
  
- newRestaurant: Restaurant=new Restaurant();
  view: string="table"; 
-  constructor(public model: RestaurantRepository) {
+  constructor(public model: RestaurantRepository) {}
   
-  }
-
   ngOnInit(): void {
   }
 switchView(){
