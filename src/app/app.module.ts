@@ -34,7 +34,7 @@ import { Subject } from "rxjs";
     AppRoutingModule,
     FormsModule,HttpClientModule
   ],
-  providers: [{ provide: SHARED_STATE, useValue: new Subject<SharedState>() },RestaurantDataSource,RestaurantRepository,  { provide: REST_URL, useValue: `http://${location.hostname}:4204/restaurants` }],
+  providers: [{ provide: SHARED_STATE, useValue: new Subject<SharedState>() },RestaurantDataSource,RestaurantRepository,  { provide: REST_URL, useValue: `http://${location.hostname}:3500/restaurants` }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
